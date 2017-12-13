@@ -48,5 +48,6 @@ C:\Projects\firewoodinky\firewoodinky\bin\System.Web.WebPages.Deployment.xml
 C:\Projects\firewoodinky\firewoodinky\bin\System.Web.WebPages.Razor.xml
 C:\Projects\firewoodinky\firewoodinky\bin\Antlr3.Runtime.pdb
 C:\Projects\firewoodinky\firewoodinky\bin\Newtonsoft.Json.xml
+C:\Projects\firewoodinky\firewoodinky\obj\Debug\firewoodinky.csprojResolveAssemblyReference.cache
 C:\Projects\firewoodinky\firewoodinky\obj\Debug\firewoodinky.dll
 C:\Projects\firewoodinky\firewoodinky\obj\Debug\firewoodinky.pdb

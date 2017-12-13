@@ -66,12 +66,70 @@
         <div id="home">
             <!-- begin content-bg -->
             @*<div class="content-bg">
-                <img src="~/Content/Images/home-bg.jpg" alt="Home" />
-            </div>*@
+                    <img src="~/Content/Images/home-bg.jpg" alt="Home" />
+                </div>*@
             <!-- end content-bg -->
             <!-- begin container -->
             <div class="container home-content">
-                <img src="~/Content/Images/logo.jpg" alt="Logo" />
+                @*<img src="~/Content/Images/logo.jpg" alt="Logo" />*@
+
+                <!-- Jssor Slider Begin -->
+                <script type="text/javascript" src="~/Content/jssor/js/jssor.slider.min.js"></script>
+                <script>
+                    jssor_slider1_init = function (containerId) {
+                        //Reference https://www.jssor.com/development/slider-with-slideshow.html
+                        //Reference https://www.jssor.com/development/tool-slideshow-transition-viewer.html
+
+                        var _SlideshowTransitions = [
+                            //Fade
+                            { $Duration: 1200, $Opacity: 2 }
+                        ];
+
+                        var options = {
+                            $SlideDuration: 500,                            //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                            $DragOrientation: 3,                            //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $Cols is greater than 1, or parking position is not 0)
+                            $AutoPlay: 1,                                   //[Optional] Auto play or not, to enable slideshow, this option must be set to greater than 0. Default value is 0. 0: no auto play, 1: continuously, 2: stop at last slide, 4: stop on click, 8: stop on user navigation (by arrow/bullet/thumbnail/drag/arrow key navigation)
+                            $Idle: 1500,                                    //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                            $SlideshowOptions: {                            //[Optional] Options to specify and enable slideshow or not
+                                $Class: $JssorSlideshowRunner$,             //[Required] Class to create instance of slideshow
+                                $Transitions: _SlideshowTransitions,        //[Required] An array of slideshow transitions to play slideshow
+                                $TransitionsOrder: 1                        //[Optional] The way to choose transition to play slide, 1 Sequence, 0 Random
+                            }
+                        };
+
+                        var jssor_slider1 = new $JssorSlider$('slider1_container', options);
+                    }
+                </script>
+
+                <div id="slider1_container" style="position:relative;width:458px;height:333px;">
+                    <!-- Loading Screen -->
+                    <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+                        <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="~/Content/jssor/svg/loading/static-svg/spin.svg" />
+                    </div>
+
+                    <!-- Slides Container -->
+                    <div u="slides" style="position: absolute; left: 0px; top: 0px; width:458px; height: 333px; overflow: hidden;">
+                        <div>
+                            <img u=image src="~/Content/Images/logo-ky.jpg" />
+                        </div>
+                        <div>
+                            <img u=image src="~/Content/Images/logo-mo.jpg" />
+                        </div>
+                        <div>
+                            <img u=image src="~/Content/Images/logo-ok.jpg" />
+                        </div>
+                        <div>
+                            <img u=image src="~/Content/Images/logo-tn.jpg" />
+                        </div>
+                    </div>
+
+                    <!-- Trigger -->
+                    <script>
+                        jssor_slider1_init();
+                    </script>
+                </div>
+                <!-- Jssor Slider End -->
+
             </div>
             <!-- end container -->
         </div>
@@ -223,83 +281,83 @@
         <!-- end #milestone -->
         <!-- begin #team -->
         @*<div id="team" class="content" data-scrollview="true">
-            <!-- begin container -->
-            <div class="container">
-                <h2 class="content-title">Our Team</h2>
-                <p class="content-desc">
-                    Phasellus suscipit nisi hendrerit metus pharetra dignissim. Nullam nunc ante, viverra quis<br />
-                    ex non, porttitor iaculis nisi.
-                </p>
-                <!-- begin row -->
-                <div class="row">
-                    <!-- begin col-4 -->
-                    <div class="col-md-4 col-sm-4">
-                        <!-- begin team -->
-                        <div class="team">
-                            <div class="image" data-animation="true" data-animation-type="flipInX">
-                                <img src="~/Content/frontend/assets/img/user-1.jpg" alt="Ryan Teller" />
-                            </div>
-                            <div class="info">
-                                <h3 class="name">Ryan Teller</h3>
-                                <div class="title text-theme">FOUNDER</div>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
-                                <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                <!-- begin container -->
+                <div class="container">
+                    <h2 class="content-title">Our Team</h2>
+                    <p class="content-desc">
+                        Phasellus suscipit nisi hendrerit metus pharetra dignissim. Nullam nunc ante, viverra quis<br />
+                        ex non, porttitor iaculis nisi.
+                    </p>
+                    <!-- begin row -->
+                    <div class="row">
+                        <!-- begin col-4 -->
+                        <div class="col-md-4 col-sm-4">
+                            <!-- begin team -->
+                            <div class="team">
+                                <div class="image" data-animation="true" data-animation-type="flipInX">
+                                    <img src="~/Content/frontend/assets/img/user-1.jpg" alt="Ryan Teller" />
+                                </div>
+                                <div class="info">
+                                    <h3 class="name">Ryan Teller</h3>
+                                    <div class="title text-theme">FOUNDER</div>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                    <div class="social">
+                                        <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                        <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- end team -->
                         </div>
-                        <!-- end team -->
-                    </div>
-                    <!-- end col-4 -->
-                    <!-- begin col-4 -->
-                    <div class="col-md-4 col-sm-4">
-                        <!-- begin team -->
-                        <div class="team">
-                            <div class="image" data-animation="true" data-animation-type="flipInX">
-                                <img src="~/Content/frontend/assets/img/user-2.jpg" alt="Jonny Cash" />
-                            </div>
-                            <div class="info">
-                                <h3 class="name">Johnny Cash</h3>
-                                <div class="title text-theme">WEB DEVELOPER</div>
-                                <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                                <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-4 col-sm-4">
+                            <!-- begin team -->
+                            <div class="team">
+                                <div class="image" data-animation="true" data-animation-type="flipInX">
+                                    <img src="~/Content/frontend/assets/img/user-2.jpg" alt="Jonny Cash" />
+                                </div>
+                                <div class="info">
+                                    <h3 class="name">Johnny Cash</h3>
+                                    <div class="title text-theme">WEB DEVELOPER</div>
+                                    <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                                    <div class="social">
+                                        <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                        <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- end team -->
                         </div>
-                        <!-- end team -->
-                    </div>
-                    <!-- end col-4 -->
-                    <!-- begin col-4 -->
-                    <div class="col-md-4 col-sm-4">
-                        <!-- begin team -->
-                        <div class="team">
-                            <div class="image" data-animation="true" data-animation-type="flipInX">
-                                <img src="~/Content/frontend/assets/img/user-3.jpg" alt="Mia Donovan" />
-                            </div>
-                            <div class="info">
-                                <h3 class="name">Mia Donovan</h3>
-                                <div class="title text-theme">WEB DESIGNER</div>
-                                <p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. </p>
-                                <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-4 col-sm-4">
+                            <!-- begin team -->
+                            <div class="team">
+                                <div class="image" data-animation="true" data-animation-type="flipInX">
+                                    <img src="~/Content/frontend/assets/img/user-3.jpg" alt="Mia Donovan" />
+                                </div>
+                                <div class="info">
+                                    <h3 class="name">Mia Donovan</h3>
+                                    <div class="title text-theme">WEB DESIGNER</div>
+                                    <p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. </p>
+                                    <div class="social">
+                                        <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                        <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- end team -->
                         </div>
-                        <!-- end team -->
+                        <!-- end col-4 -->
                     </div>
-                    <!-- end col-4 -->
+                    <!-- end row -->
                 </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </div>*@
+                <!-- end container -->
+            </div>*@
         <!-- end #team -->
         <!-- begin #quote -->
         <div id="quote" class="content bg-black-darker has-bg" data-scrollview="true">
@@ -589,65 +647,65 @@
         <!-- end #work -->
         <!-- begin #client -->
         @*<div id="client" class="content has-bg bg-green" data-scrollview="true">
-            <!-- begin content-bg -->
-            <div class="content-bg">
-                <img src="~/Content/frontend/assets/img/client-bg.jpg" alt="Client" />
-            </div>
-            <!-- end content-bg -->
-            <!-- begin container -->
-            <div class="container" data-animation="true" data-animation-type="fadeInUp">
-                <h2 class="content-title">Our Client Testimonials</h2>
-                <!-- begin carousel -->
-                <div class="carousel testimonials slide" data-ride="carousel" id="testimonials">
-                    <!-- begin carousel-inner -->
-                    <div class="carousel-inner text-center">
-                        <!-- begin item -->
-                        <div class="item active">
-                            <blockquote>
-                                <i class="fa fa-quote-left"></i>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra, nulla ut interdum fringilla,<br />
-                                urna massa cursus lectus, eget rutrum lectus neque non ex.
-                                <i class="fa fa-quote-right"></i>
-                            </blockquote>
-                            <div class="name"> — <span class="text-theme">Mark Doe</span>, Designer</div>
-                        </div>
-                        <!-- end item -->
-                        <!-- begin item -->
-                        <div class="item">
-                            <blockquote>
-                                <i class="fa fa-quote-left"></i>
-                                Donec cursus ligula at ante vulputate laoreet. Nulla egestas sit amet lorem non bibendum.<br />
-                                Nulla eget risus velit. Pellentesque tincidunt velit vitae tincidunt finibus.
-                                <i class="fa fa-quote-right"></i>
-                            </blockquote>
-                            <div class="name"> — <span class="text-theme">Joe Smith</span>, Developer</div>
-                        </div>
-                        <!-- end item -->
-                        <!-- begin item -->
-                        <div class="item">
-                            <blockquote>
-                                <i class="fa fa-quote-left"></i>
-                                Sed tincidunt quis est sed ultrices. Sed feugiat auctor ipsum, sit amet accumsan elit vestibulum<br />
-                                fringilla. In sollicitudin ac ligula eget vestibulum.
-                                <i class="fa fa-quote-right"></i>
-                            </blockquote>
-                            <div class="name"> — <span class="text-theme">Linda Adams</span>, Programmer</div>
-                        </div>
-                        <!-- end item -->
-                    </div>
-                    <!-- end carousel-inner -->
-                    <!-- begin carousel-indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#testimonials" data-slide-to="0" class="active"></li>
-                        <li data-target="#testimonials" data-slide-to="1" class=""></li>
-                        <li data-target="#testimonials" data-slide-to="2" class=""></li>
-                    </ol>
-                    <!-- end carousel-indicators -->
+                <!-- begin content-bg -->
+                <div class="content-bg">
+                    <img src="~/Content/frontend/assets/img/client-bg.jpg" alt="Client" />
                 </div>
-                <!-- end carousel -->
-            </div>
-            <!-- end containter -->
-        </div>*@
+                <!-- end content-bg -->
+                <!-- begin container -->
+                <div class="container" data-animation="true" data-animation-type="fadeInUp">
+                    <h2 class="content-title">Our Client Testimonials</h2>
+                    <!-- begin carousel -->
+                    <div class="carousel testimonials slide" data-ride="carousel" id="testimonials">
+                        <!-- begin carousel-inner -->
+                        <div class="carousel-inner text-center">
+                            <!-- begin item -->
+                            <div class="item active">
+                                <blockquote>
+                                    <i class="fa fa-quote-left"></i>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra, nulla ut interdum fringilla,<br />
+                                    urna massa cursus lectus, eget rutrum lectus neque non ex.
+                                    <i class="fa fa-quote-right"></i>
+                                </blockquote>
+                                <div class="name"> — <span class="text-theme">Mark Doe</span>, Designer</div>
+                            </div>
+                            <!-- end item -->
+                            <!-- begin item -->
+                            <div class="item">
+                                <blockquote>
+                                    <i class="fa fa-quote-left"></i>
+                                    Donec cursus ligula at ante vulputate laoreet. Nulla egestas sit amet lorem non bibendum.<br />
+                                    Nulla eget risus velit. Pellentesque tincidunt velit vitae tincidunt finibus.
+                                    <i class="fa fa-quote-right"></i>
+                                </blockquote>
+                                <div class="name"> — <span class="text-theme">Joe Smith</span>, Developer</div>
+                            </div>
+                            <!-- end item -->
+                            <!-- begin item -->
+                            <div class="item">
+                                <blockquote>
+                                    <i class="fa fa-quote-left"></i>
+                                    Sed tincidunt quis est sed ultrices. Sed feugiat auctor ipsum, sit amet accumsan elit vestibulum<br />
+                                    fringilla. In sollicitudin ac ligula eget vestibulum.
+                                    <i class="fa fa-quote-right"></i>
+                                </blockquote>
+                                <div class="name"> — <span class="text-theme">Linda Adams</span>, Programmer</div>
+                            </div>
+                            <!-- end item -->
+                        </div>
+                        <!-- end carousel-inner -->
+                        <!-- begin carousel-indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#testimonials" data-slide-to="0" class="active"></li>
+                            <li data-target="#testimonials" data-slide-to="1" class=""></li>
+                            <li data-target="#testimonials" data-slide-to="2" class=""></li>
+                        </ol>
+                        <!-- end carousel-indicators -->
+                    </div>
+                    <!-- end carousel -->
+                </div>
+                <!-- end containter -->
+            </div>*@
         <!-- end #client -->
         <!-- begin #pricing -->
         <div id="pricing" class="content" data-scrollview="true">
@@ -842,9 +900,9 @@
     <!-- ================== END BASE JS ================== -->
 
     <script>
-	    $(document).ready(function() {
-	        App.init();
-	    });
+        $(document).ready(function () {
+            App.init();
+        });
     </script>
 </body>
 </html>
